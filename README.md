@@ -2,15 +2,17 @@
 
 This app displays a list of the 10 most watched movies in the USA, using data fetched from a public API.
 
-## Getting Started
+## To test the app you must:
 
-This project is a starting point for a Flutter application.
+- Enable developer options and debugging on your phone
+- Clone this project
+- Open it on your Android Studio
+- Just run the code and you're good to go
 
-A few resources to get you started if this is your first Flutter project:
+## Features:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Search bar to find your favorite movie on the list
+- Filter dialog to select one or more options and filter the data by genre
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Important:
+You can test it with the emulator, but I've test it on my Moto G14 on both vertical and horizontal screens, works just fine.
