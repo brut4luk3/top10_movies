@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   List<dynamic> filteredMovies = [];
+  Map<dynamic, int> originalRankings = {};
   String searchQuery = "";
   Set<String> selectedGenres = {};
 
@@ -20,6 +21,9 @@ class HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     filteredMovies = widget.movies;
+    for (int i = 0; i < widget.movies.length; i++) {
+      originalRankings[widget.movies[i]] = i + 1;
+    }
   }
 
   void handleSearch(String newQuery) {
@@ -131,6 +135,7 @@ class HomeScreenState extends State<HomeScreen> {
               itemCount: filteredMovies.length,
               itemBuilder: (context, index) {
                 var movie = filteredMovies[index];
+                int originalIndex = originalRankings[movie] ?? (index + 1);
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Card(
@@ -143,7 +148,7 @@ class HomeScreenState extends State<HomeScreen> {
                         movie['title'],
                         style: const TextStyle(fontSize: 20),
                       ),
-                      subtitle: Text('${formatDate(movie['release_date'])} - ${movie['genre_names'].join(', ')}\n${ordinal(index + 1)} place'),
+                      subtitle: Text('${formatDate(movie['release_date'])} - ${movie['genre_names'].join(', ')}\n${ordinal(originalIndex)} place'),
                       onTap: () {
                         Navigator.push(
                           context,
